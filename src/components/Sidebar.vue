@@ -1,13 +1,6 @@
 <template>
   <aside class="sm-side">
-    <div class="user-head">
-      <img src="src/assets/images/profile.jpg" />
-
-      <div class="user-name">
-        <h5>Bo Andersen</h5>
-        <span class="email-address">info@codingexplained.com</span>
-      </div>
-    </div>
+    <app-user></app-user>
 
     <ul class="inbox-nav">
       <li :class="{active: activeView === 'app-inbox'}">
@@ -43,8 +36,12 @@
 
 <script>
 import { eventBus } from "../main";
+import User from './User';
 
 export default {
+  components: {
+    appUser: User
+  },
   data() {
     return {
       activeView: "app-inbox"
