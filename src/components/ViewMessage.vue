@@ -25,7 +25,7 @@
     </p>
     <p>
       <strong>From:</strong>
-      {{data.message.from.name}} <{{ data.message.from.email }}>
+      {{data.message.from.name}} &lt;{{ data.message.from.email }}&gt;
     </p>
     <hr />
     <div v-html="data.message.content" class="message"></div>
