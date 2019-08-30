@@ -5,6 +5,7 @@
         v-for="(message, index) in messages"
         :class="{ unread: typeof message.isRead !== 'undefined' && !message.isRead }"
         :key="index"
+        @click="openMessage(message)"
       >
         <td>
           <input type="checkbox" />
@@ -32,11 +33,24 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 export default {
   props: {
     messages: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    openMessage(message) {
+      eventBus.$emit('changeView', {
+        tag: 'app-view-message',
+        title: message.subject,
+        data: {
+          message
+        }
+      })
     }
   }
 };
