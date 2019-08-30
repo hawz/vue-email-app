@@ -10,11 +10,17 @@
 <script>
 import Sidebar from './components/Sidebar'
 import Content from './components/Content'
+import messages from './data/messages'
 
 export default {
   components: {
     appSidebar: Sidebar,
     appContent: Content
+  },
+  data() {
+    return {
+      messages
+    }
   }
 };
 </script>

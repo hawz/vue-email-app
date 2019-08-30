@@ -93,8 +93,8 @@ export default [
         type: 'outgoing',
         date: moment().subtract(7, 'days'),
         from: {
-            name: 'Bo Andersen',
-            email: 'info@codingexplained.com'
+            name: 'Albe Masia',
+            email: 'hawz@github.io'
         },
         attachments: []
     },
@@ -167,14 +167,14 @@ export default [
             <p>I would like to talk with you about a possible collaboration. I think we would both benefit from working together.</p>
             <p>Let me know if you are interested in having a word.</p>
             <p>Best regards,</p>
-            <p>Bo Andersen</p>
+            <p>Albe Masia</p>
         `,
         isDeleted: false,
         type: 'outgoing',
         date: moment().subtract(100, 'days'),
         from: {
-            name: 'Bo Andersen',
-            email: 'info@codingexplained.com'
+            name: 'Albe Masia',
+            email: 'hawz@github.io'
         },
         attachments: []
     },
@@ -190,8 +190,8 @@ export default [
         type: 'outgoing',
         date: moment().subtract(4, 'months'),
         from: {
-            name: 'Bo Andersen',
-            email: 'info@codingexplained.com'
+            name: 'Albe Masia',
+            email: 'hawz@github.io'
         },
         attachments: []
     },
@@ -232,8 +232,8 @@ export default [
         type: 'outgoing',
         date: moment().subtract(6, 'months'),
         from: {
-            name: 'Bo Andersen',
-            email: 'info@codingexplained.com'
+            name: 'Albe Masia',
+            email: 'hawz@github.io'
         },
         attachments: []
     },
