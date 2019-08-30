@@ -36,7 +36,7 @@
 
 <script>
 import { eventBus } from "../main";
-import User from './User';
+import User from "./User";
 
 export default {
   props: {
@@ -65,24 +65,30 @@ export default {
   computed: {
     unreadMessages() {
       return this.messages.filter(message => {
-        return (message.type === 'incoming' && !message.isRead && !message.isDeleted);
-      })
+        return (
+          message.type === "incoming" && !message.isRead && !message.isDeleted
+        );
+      });
     },
     sentMessages() {
       return this.messages.filter(message => {
-        return (message.type === 'outgoing' && !message.isDeleted);
-      })
+        return message.type === "outgoing" && !message.isDeleted;
+      });
     },
     importantMessages() {
       return this.messages.filter(message => {
-        return (message.type === 'incoming' && message.isImportant && !message.isDeleted);
-      })
+        return (
+          message.type === "incoming" &&
+          message.isImportant &&
+          !message.isDeleted
+        );
+      });
     },
     trashedMessages() {
       return this.messages.filter(message => {
         return message.isDeleted;
-      })
-    },
+      });
+    }
   }
 };
 </script>

@@ -3,7 +3,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    sentMessages() {
+      return this.messages.filter(message => {
+        return message.type === "outgoing" && !message.isDeleted;
+      });
+    }
+  }
+};
 </script>
 
 <style>
