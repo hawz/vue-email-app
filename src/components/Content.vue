@@ -5,7 +5,7 @@
     </div>
 
     <keep-alive>
-      <component :is="currentView.tag"></component>
+      <component :is="currentView.tag" :data="currentView.data"></component>
     </keep-alive>
   </aside>
 </template>
@@ -26,28 +26,39 @@ export default {
     appTrash: Trash,
     appViewMessage: ViewMessage
   },
+  props: {
+    messages: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
       history: [
         {
           tag: "app-inbox",
-          title: "Inbox"
+          title: "Inbox",
+          data: {
+            messages: null
+          }
         }
       ]
     };
   },
   computed: {
     currentView() {
-      return this.history[0];
+      let current = this.history[0];
+      current.data.messages = this.messages;
+      return current;
     }
   },
   created() {
     eventBus.$on("navigateTo", data => {
       const { tag, title } = data;
-      // console.log("navigate to", data);
       this.history.unshift({
         tag,
-        title
+        title,
+        data: data.data || {}
       });
     });
   }
