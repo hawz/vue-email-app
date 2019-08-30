@@ -25,12 +25,17 @@ export default {
     };
   },
   created() {
-    eventBus.$on('refreshMessages', () => {
+    eventBus.$on("refreshMessages", () => {
       let randomIndex = Math.floor(Math.random() * randomMessages.length);
-      let tempMessages = [randomMessages[randomIndex]];
+      let temp = [randomMessages[randomIndex]];
 
-      this.messages = [...tempMessages, ...this.messages]
-    })
+      this.messages = [...temp, ...this.messages];
+    });
+
+    eventBus.$on("sentMessage", data => {
+      let temp = [data.message];
+      this.messages = [...temp, ...this.messages];
+    });
   }
 };
 </script>

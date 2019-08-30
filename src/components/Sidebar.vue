@@ -2,6 +2,10 @@
   <aside class="sm-side">
     <app-user></app-user>
 
+    <div class="compose-wrapper">
+      <app-compose></app-compose>
+    </div>
+
     <ul class="inbox-nav">
       <li :class="{active: activeView === 'app-inbox'}">
         <a href="#" @click.prevent="navigate('app-inbox', 'Inbox')">
@@ -37,6 +41,7 @@
 <script>
 import { eventBus } from "../main";
 import User from "./User";
+import Compose from './Compose'
 
 export default {
   props: {
@@ -46,7 +51,8 @@ export default {
     }
   },
   components: {
-    appUser: User
+    appUser: User,
+    appCompose: Compose
   },
   data() {
     return {
