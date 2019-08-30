@@ -1,8 +1,24 @@
 <template>
   <div class="inbox-body">
-    <button class="btn btn-primary" @click="navigateBack">
-      <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Back
-    </button>
+    <div class="mail-option">
+      <button class="btn btn-primary" @click="navigateBack">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Back
+      </button>&nbsp;
+
+      <button class="btn btn-danger" @click="data.message.isDeleted = true" :disabled="data.message.isDeleted">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp; {{ data.message.isDeleted ? 'Deleted' : 'Delete' }}
+      </button>&nbsp;
+
+      <button class="btn" :class="{'btn-success': !data.message.isRead, 'btn-default': data.message.isRead}" @click="data.message.isRead = !data.message.isRead">
+        <template v-if="data.message.isRead">
+          <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; Mark as unread
+        </template>
+        <template v-else>
+          <i class="fa fa-envelope-open" aria-hidden="true"></i>&nbsp; Mark as read
+        </template>
+      </button>&nbsp;
+
+    </div>
     <p>
       <strong>Date:</strong>
       {{data.message.date.fromNow()}}
