@@ -56,7 +56,7 @@ export default {
   methods: {
     navigate(tag, title) {
       this.activeView = tag;
-      eventBus.$emit("navigateTo", {
+      eventBus.$emit("changeView", {
         tag,
         title
       });

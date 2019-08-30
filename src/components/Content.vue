@@ -53,7 +53,7 @@ export default {
     }
   },
   created() {
-    eventBus.$on("navigateTo", data => {
+    eventBus.$on("changeView", data => {
       const { tag, title } = data;
       this.history.unshift({
         tag,
