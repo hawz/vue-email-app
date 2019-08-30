@@ -50,15 +50,19 @@ export default {
       let current = this.history[0];
       current.data.messages = this.messages;
       return current;
+    },
+
+    previousView() {
+      return (typeof this.history[1] !== 'undefined') ? this.history[1] : null;
     }
   },
   created() {
-    eventBus.$on("changeView", data => {
-      const { tag, title } = data;
+    eventBus.$on("changeView", params => {
+      const { tag, title, data } = params;
       this.history.unshift({
         tag,
         title,
-        data: data.data || {}
+        data: data || {}
       });
     });
   }
